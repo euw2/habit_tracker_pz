@@ -1,0 +1,233 @@
+{
+    "info": {
+        "name": "Habit Tracker API",
+        "description": "API documentation for Habit Tracker application",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Register User",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "url": {
+                    "raw": "https://api.habittracker.com/users/register",
+                    "protocol": "https",
+                    "host": [
+                        "api",
+                        "habittracker",
+                        "com"
+                    ],
+                    "path": [
+                        "users",
+                        "register"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": ""
+                }
+            }
+        },
+        {
+            "name": "Login User",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "url": {
+                    "raw": "https://api.habittracker.com/users/login",
+                    "protocol": "https",
+                    "host": [
+                        "api",
+                        "habittracker",
+                        "com"
+                    ],
+                    "path": [
+                        "users",
+                        "login"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": ""
+                }
+            }
+        },
+        {
+            "name": "Create Habit",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                    }
+                ],
+                "url": {
+                    "raw": "https://api.habittracker.com/habits",
+                    "protocol": "https",
+                    "host": [
+                        "api",
+                        "habittracker",
+                        "com"
+                    ],
+                    "path": [
+                        "habits"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": ""
+                }
+            }
+        },
+        {
+            "name": "Complete Habit",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                    }
+                ],
+                "url": {
+                    "raw": "https://api.habittracker.com/habits/:habit_id/complete",
+                    "protocol": "https",
+                    "host": [
+                        "api",
+                        "habittracker",
+                        "com"
+                    ],
+                    "path": [
+                        "habits",
+                        ":habit_id",
+                        "complete"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Delete Habit",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                    }
+                ],
+                "url": {
+                    "raw": "https://api.habittracker.com/habits/:habit_id",
+                    "protocol": "https",
+                    "host": [
+                        "api",
+                        "habittracker",
+                        "com"
+                    ],
+                    "path": [
+                        "habits",
+                        ":habit_id"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get User Statistics",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                    }
+                ],
+                "url": {
+                    "raw": "https://api.habittracker.com/users/:user_id/statistics",
+                    "protocol": "https",
+                    "host": [
+                        "api",
+                        "habittracker",
+                        "com"
+                    ],
+                    "path": [
+                        "users",
+                        ":user_id",
+                        "statistics"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Edit Habit",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                    }
+                ],
+                "url": {
+                    "raw": "https://api.habittracker.com/habits/:habit_id",
+                    "protocol": "https",
+                    "host": [
+                        "api",
+                        "habittracker",
+                        "com"
+                    ],
+                    "path": [
+                        "habits",
+                        ":habit_id"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": ""
+                }
+            }
+        },
+        {
+            "name": "Get Notifications",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                    }
+                ],
+                "url": {
+                    "raw": "https://api.habittracker.com/notifications",
+                    "protocol": "https",
+                    "host": [
+                        "api",
+                        "habittracker",
+                        "com"
+                    ],
+                    "path": [
+                        "notifications"
+                    ]
+                }
+            }
+        }
+    ]
+}
