@@ -1,0 +1,29 @@
+Table Activity {
+  id Integer [pk]
+  date Date
+  habit_id Integer [ref: > Habit.id]
+  user_id Integer [ref: > User.id]
+}
+ 
+Table Habit {
+  id Integer [pk]
+  name String
+  description String
+}
+ 
+Table User {
+  id Integer [pk]
+  password String
+  email String
+  recovery_code String
+  username String
+}
+ 
+Table Habit_Statistics {
+  habit_id Integer [ref: > Habit.id]
+  user_id Integer [ref: > User.id]
+  days_in_row Integer
+  total_completed Integer
+  last_updated Date
+}
+ 
