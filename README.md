@@ -16,6 +16,7 @@ If you wish to run this app:
 ```
     docker-compose up
 ```
+5. Visit http://localhost:3000/habits/
 
 Project Goals:
 - Help in building good habits
@@ -52,6 +53,7 @@ docker-compose build
 ```
 docker-compose up
 ```
+5. Odwiedź http://localhost:3000/habits/
 
 Cele Projektu:
 - Pomoc w budowaniu dobrych nawyków
