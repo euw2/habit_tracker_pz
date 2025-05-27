@@ -1,4 +1,5 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+from typing import Optional
 
 
 @dataclass
@@ -7,3 +8,4 @@ class Habit:
     name: str
     user_id: int
     activity_value_type: str  # 'int' or 'float'
+    rep_obj_id: Optional[int] = field(default=None, compare=False)

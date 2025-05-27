@@ -74,7 +74,7 @@ class MemoryRepository(BaseRepository):
         Quick, in memory implementation.
     """
 
-    def __init__(self, object_factory, id_seq=0):
+    def __init__(self, object_factory, id_seq=1):
         """
 
         :param object_factory:

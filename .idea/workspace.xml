@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e9890131-f081-4486-bd14-cc495a1f7064" name="Changes" comment="Updated readme.md&#10;2. moved StarUML diagrams into documentation folder">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PZHabitTracker/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/PZHabitTracker/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/habits/Core/Habit.py" beforeDir="false" afterPath="$PROJECT_DIR$/habits/Core/Habit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/habits/Core/HabitService.py" beforeDir="false" afterPath="$PROJECT_DIR$/habits/Core/HabitService.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/habits/Core/Repositories.py" beforeDir="false" afterPath="$PROJECT_DIR$/habits/Core/Repositories.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/habits/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/habits/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/habits/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/habits/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +96,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-c69650fc56ca-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.15619.17" />
+        <option value="bundled-python-sdk-babbdf50b680-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.15989.155" />
       </set>
     </attachedChunks>
   </component>
@@ -135,8 +137,18 @@
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="695b9759-580a-47bb-ab79-5b6a13c787c6" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
+        <entry key="695b9759-580a-47bb-ab79-5b6a13c787c6">
+          <value>
+            <State />
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>

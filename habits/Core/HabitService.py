@@ -38,7 +38,13 @@ class HabitService:
         self._habit_repository.remove(habit_id)
 
     def edit_habit(self, habit_id: int,  name: str, user_id: int, activity_value_type: str):
-        new_obj = Habit(habit_id, name, user_id, activity_value_type)
+        new_obj = Habit(
+            habit_id=habit_id,
+            name=name,
+            user_id=user_id,
+            activity_value_type=activity_value_type,
+            rep_obj_id=habit_id
+        )
         self._habit_repository.update(new_obj)
 
     def get_activity_range(self, habit_id: int, period_start: date, period_end: date):
