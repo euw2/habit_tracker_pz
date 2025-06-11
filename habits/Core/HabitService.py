@@ -1,22 +1,15 @@
 from habits.Core.Habit import Habit
 from habits.Core.HabitActivity import HabitActivity
-from habits.Core.Repositories import BaseRepository, MemoryRepository
+from habits.Core.Repositories import BaseRepository, ModelBasedActivityRepository, ModelBasedHabitRepository
 from datetime import date
 
 
 def create_activity_repository():
-    #  change this function, to change underlying activity repository
-    def activity_factory(habit_id, date_,  rep_obj_id=None):
-        return HabitActivity(rep_obj_id, habit_id, date_)
-
-    return MemoryRepository(activity_factory)
+    return ModelBasedActivityRepository()
 
 
 def create_habit_repository():
-    def habit_factory(name: str, user_id: int, activity_value_type: str, rep_obj_id=None):
-        return Habit(rep_obj_id, name, user_id, activity_value_type)
-
-    return MemoryRepository(habit_factory)
+    return ModelBasedHabitRepository()
 
 
 class HabitService:
@@ -55,7 +48,7 @@ class HabitService:
         filter_ = lambda a: a.happenedInPeriod(period_start, period_end) and a.habit_id == habit_id
         return [a for a in activities if filter_(a)]
 
-    def register_activity(self, habit_id: int, timestamp: date):
-        return self._activity_repository.create(habit_id=habit_id, date_=timestamp)
+    def register_activity(self, habit_id: int, timestamp: date, value: int | float):
+        return self._activity_repository.create(habit_id=habit_id, date_=timestamp, value=value)
 
 

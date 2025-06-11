@@ -100,15 +100,22 @@ def mark_as_done(request):
             data = json.loads(request.body)
             habit_id = data.get('habit_id')
             timestamp_str = data.get('timestamp')
+            value = data.get('value')
 
             if not habit_id:
                 return JsonResponse({'error': 'habit_id is required'}, status=400)
 
-            habit_service.get_habit(int(habit_id))
+            habit = habit_service.get_habit(int(habit_id))
+
+            match habit.activity_value_type:
+                case 'int':
+                    value = int(value)
+                case 'float':
+                    value = float(value)
 
             timestamp = datetime.strptime(timestamp_str, "%Y-%m-%d").date() if timestamp_str else date.today()
 
-            activity = habit_service.register_activity(int(habit_id), timestamp)
+            activity = habit_service.register_activity(int(habit_id), timestamp, value)
 
             return JsonResponse({
                 'habit_id': activity.habit_id,
