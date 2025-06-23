@@ -1,6 +1,9 @@
-
 from abc import ABC, abstractmethod
-from typing import List
+from django.core.exceptions import ObjectDoesNotExist
+
+from ..models import Habit, User, Activity
+import habits.Core.Habit as CoreHabit
+import habits.Core.HabitActivity as CoreActivity
 
 
 class RepositoryException(BaseException):
@@ -117,4 +120,117 @@ class MemoryRepository(BaseRepository):
             self._objects[rep_obj_id] = object_
         else:
             raise RepositoryException
-    
+
+
+class ModelBasedHabitRepository(BaseRepository):
+
+    @staticmethod
+    def _domain_object_from_model(model: Habit) -> CoreHabit.Habit:
+        return CoreHabit.Habit(model.pk, model.name, model.user.primary_key, model.activity_value_type, None)
+
+    @staticmethod
+    def _fetch_user(user_id: int):
+        try:
+            user = User.objects.get(pk=user_id)
+        except ObjectDoesNotExist:
+            raise RepositoryException
+        return user
+
+    @staticmethod
+    def _model_from_domain_object(habit: CoreHabit.Habit) -> CoreHabit.Habit:
+        return Habit(
+            name=habit.name,
+            description="",
+            activity_value_type=habit.activity_value_type,
+            user=ModelBasedHabitRepository._fetch_user(habit.user_id)
+        )
+
+    def create(self, *args, **kwargs):
+        user_id = kwargs["user_id"]
+        user = self._fetch_user(user_id)
+
+        name = kwargs.get("name", "New Habit")
+        value_type = kwargs.get("activity_value_type", "int")
+        result = Habit(name=name, user=user, activity_value_type=value_type)
+        result.full_clean()
+        result.save()
+        return self._domain_object_from_model(result)
+
+    def remove(self, object_id) -> bool:
+        return Habit.objects.filter(pk=object_id).delete()[0] > 0
+
+    def get_all(self):
+        return [self._domain_object_from_model(model) for model in Habit.objects.all()]
+
+    def get_by_id(self, object_id):
+        result = Habit.objects.get(pk=object_id)
+        return self._domain_object_from_model(result)
+
+    def update(self, object_: CoreHabit.Habit):
+        mod: Habit = Habit.objects.get(pk=object_.habit_id)
+        mod.name = object_.name
+
+        """
+            W tym momencie, kiedy użytkownik chce zmienić typ aktywności, możemy zrobić 
+            jedną z tym rzeczy:
+            1) Wywalić błąd
+            2) Usunąć poprzednie aktywności
+            3) Przekonwertować aktywności do nowego typu.
+        """
+        if mod.activity_value_type != object_.activity_value_type:
+            raise ValueError("Can't change activity value type")
+
+        mod.user = self._fetch_user(object_.user_id)
+        mod.full_clean()
+        mod.save()
+
+
+class ModelBasedActivityRepository(BaseRepository):
+
+    @staticmethod
+    def _domain_object_from_model(model: Activity) -> CoreActivity.HabitActivity:
+        return CoreActivity.HabitActivity(model.pk, model.habit.primary_key, model.date)
+
+    @staticmethod
+    def _fetch_habit(habit_id: int):
+        try:
+            habit = Habit.objects.get(pk=habit_id)
+        except ObjectDoesNotExist:
+            raise RepositoryException
+        return habit
+
+    @staticmethod
+    def _model_from_domain_object(activity: CoreActivity.HabitActivity) -> Activity:
+        habit = ModelBasedActivityRepository._fetch_habit(activity.habit_id)
+        result = Activity(
+            value_type=habit.activity_value_type,
+            date=activity.activity_date
+        )
+        result.value = activity.value
+        return result
+
+    def create(self, *args, **kwargs):
+        habit_id = kwargs["habit_id"]
+        date = kwargs.get("date_")
+        value = kwargs.get("value")
+        result = CoreActivity.HabitActivity(0, habit_id, date, value)
+        model = self._model_from_domain_object(result)
+        model.full_clean()
+        model.save()
+        return result
+
+    def remove(self, object_id) -> bool:
+        return Activity.objects.filter(pk=object_id).delete()[0] > 0
+
+    def get_all(self):
+        return [self._domain_object_from_model(model) for model in Activity.objects.all()]
+
+    def get_by_id(self, object_id):
+        result = Activity.objects.get(pk=object_id)
+        return self._domain_object_from_model(result)
+
+    def update(self, object_: CoreActivity.HabitActivity):
+        model: Activity = Activity.objects.get(pk=object_.id)
+        model.date = object_.activity_date
+        model.value = object_.value
+        model.habit = self._fetch_habit(object_.habit_id)

@@ -8,15 +8,19 @@ If you wish to run this app:
 
 1. Make sure you have docker and docker-compose installed on you machine
 2. Open project's root directory in the terminal
-3. Build docker image
+3. Setup local development environment
 ```
-    docker-compose build
+    python env/generate_stub_env.py
 ```
-4. Run 
+4. Build docker image
 ```
-    docker-compose up
+    docker-compose.exe --env-file=env/db_env.env build
 ```
-5. Visit http://localhost:3000/habits/
+5. Run 
+```
+    docker-compose.exe --env-file=env/db_env.env up
+```
+6. Visit http://localhost:3000/habits/
 
 Project Goals:
 - Help in building good habits
@@ -45,15 +49,19 @@ Jeśli chcesz uruchomić tę aplikację:
 
 1. Upewnij się, że masz zainstalowane docker i docker-compose na swoim komputerze
 2. Otwórz katalog główny projektu w terminalu
-3. Zbuduj obraz dockera
+3. Zainicjalizuj środowisko developerskie.
 ```
-docker-compose build
+    python env/generate_stub_env.py
 ```
-4. Uruchom 
+4. Zbuduj obraz dockera
 ```
-docker-compose up
+docker-compose.exe --env-file=env/db_env.env build
 ```
-5. Odwiedź http://localhost:3000/habits/
+5. Uruchom 
+```
+docker-compose.exe --env-file=env/db_env.env up
+```
+6. Odwiedź http://localhost:3000/habits/
 
 Cele Projektu:
 - Pomoc w budowaniu dobrych nawyków

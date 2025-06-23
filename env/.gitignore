@@ -1,0 +1,2 @@
+# ignore all generated env files
+db_env.env
