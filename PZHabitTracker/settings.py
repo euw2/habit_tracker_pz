@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     'habits.apps.HabitsConfig',
+    'wait_for_db',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
