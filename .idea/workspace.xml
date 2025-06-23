@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9890131-f081-4486-bd14-cc495a1f7064" name="Changes" comment="Created database models">
+    <list default="true" id="e9890131-f081-4486-bd14-cc495a1f7064" name="Changes" comment="Implemented new repository implementations that target provided database objects">
+      <change afterPath="$PROJECT_DIR$/env/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/db_env.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/dev_env_entry_point.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/generate_stub_env.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/habits/Core/HabitActivity.py" beforeDir="false" afterPath="$PROJECT_DIR$/habits/Core/HabitActivity.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/habits/Core/HabitService.py" beforeDir="false" afterPath="$PROJECT_DIR$/habits/Core/HabitService.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PZHabitTracker/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/PZHabitTracker/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/habits/Core/Repositories.py" beforeDir="false" afterPath="$PROJECT_DIR$/habits/Core/Repositories.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/habits/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/habits/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/habits/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/habits/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +42,7 @@
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
         <option name="accountId" value="ab19f402-f9ba-48b1-8efa-cf1d8ce361b1" />
-        <option name="url" value="https://github.com/euw2/habit_tracker_pz" />
+        <option name="url" value="https://github.com/Pawwz85/habit_tracker_pz.git" />
       </UrlAndAccount>
     </option>
   </component>
@@ -59,6 +64,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Pawwz/PycharmProjects/PZHabitTracker&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
@@ -141,7 +147,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749520071850</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Implemented new repository implementations that target provided database objects">
+      <option name="closed" value="true" />
+      <created>1749673611423</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1749673611424</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -187,6 +201,7 @@
     <MESSAGE value="- Created documentation folder&#10;- Moved all documentation files into documentation folder" />
     <MESSAGE value="Updated readme.md&#10;2. moved StarUML diagrams into documentation folder" />
     <MESSAGE value="Created database models" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created database models" />
+    <MESSAGE value="Implemented new repository implementations that target provided database objects" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented new repository implementations that target provided database objects" />
   </component>
 </project>

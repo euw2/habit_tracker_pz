@@ -2,8 +2,8 @@ from abc import ABC, abstractmethod
 from django.core.exceptions import ObjectDoesNotExist
 
 from ..models import Habit, User, Activity
-import Habit as CoreHabit
-import HabitActivity as CoreActivity
+import habits.Core.Habit as CoreHabit
+import habits.Core.HabitActivity as CoreActivity
 
 
 class RepositoryException(BaseException):
