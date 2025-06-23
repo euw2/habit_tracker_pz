@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9890131-f081-4486-bd14-cc495a1f7064" name="Changes" comment="Implemented new repository implementations that target provided database objects">
-      <change afterPath="$PROJECT_DIR$/env/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/db_env.env.example" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/dev_env_entry_point.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/generate_stub_env.py" afterDir="false" />
+    <list default="true" id="e9890131-f081-4486-bd14-cc495a1f7064" name="Changes" comment="Added postgres database to docker&#10;Added script to generate development environment">
+      <change afterPath="$PROJECT_DIR$/habits/migrations/0001_initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PZHabitTracker/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/PZHabitTracker/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/habits/Core/Repositories.py" beforeDir="false" afterPath="$PROJECT_DIR$/habits/Core/Repositories.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/dev_env_entry_point.sh" beforeDir="false" afterPath="$PROJECT_DIR$/env/dev_env_entry_point.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +147,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749673611424</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added postgres database to docker&#10;Added script to generate development environment">
+      <option name="closed" value="true" />
+      <created>1750689301686</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1750689301686</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added postgres database to docker&#10;Added script to generate development environment">
+      <option name="closed" value="true" />
+      <created>1750689684340</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1750689684340</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -202,6 +210,7 @@
     <MESSAGE value="Updated readme.md&#10;2. moved StarUML diagrams into documentation folder" />
     <MESSAGE value="Created database models" />
     <MESSAGE value="Implemented new repository implementations that target provided database objects" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented new repository implementations that target provided database objects" />
+    <MESSAGE value="Added postgres database to docker&#10;Added script to generate development environment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added postgres database to docker&#10;Added script to generate development environment" />
   </component>
 </project>
