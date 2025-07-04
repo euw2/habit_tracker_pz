@@ -22,6 +22,7 @@ class Habit(models.Model):
     description = models.TextField(default="Placeholder. Edit habit to set custom description")
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     activity_value_type = models.CharField(max_length=8, choices=SUPPORTED_ACTIVITY_TYPES)
+    target_days = models.IntegerField(null=True, blank=True)
 
 
 class Activity(models.Model):

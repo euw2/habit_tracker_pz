@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 from datetime import date, datetime
+from collections import defaultdict
 
 from habits.Core.HabitService import create_habit_repository, create_activity_repository, HabitService
 from habits.Core.Repositories import NoSuchElementException
@@ -34,6 +35,7 @@ def create_habit(request):
         name = data.get('name')
         user_id = data.get('user_id')
         activity_value_type = data.get('activity_value_type')
+        target_days = data.get('target_days')
 
         missing = []
         if not name:
@@ -51,7 +53,18 @@ def create_habit(request):
         except ValueError:
             return JsonResponse({'error': 'user_id must be an integer'}, status=400)
 
-        habit = habit_service.create_habit(name, user_id, activity_value_type)
+        if target_days is not None:
+            try:
+                target_days = int(target_days)
+            except ValueError:
+                return JsonResponse({'error': 'target_days must be an integer or null'}, status=400)
+
+        habit = habit_service.create_habit(
+            name=name,
+            user_id=user_id,
+            activity_value_type=activity_value_type,
+            target_days=target_days
+        )
 
         return JsonResponse({
             'habit_id': habit.habit_id,
@@ -64,6 +77,7 @@ def create_habit(request):
         import traceback
         traceback.print_exc()
         return JsonResponse({'error': str(e)}, status=500)
+
 @csrf_exempt
 def remove_habit(request):
     if request.method != 'POST':
@@ -96,6 +110,7 @@ def remove_habit(request):
         import traceback
         traceback.print_exc()
         return JsonResponse({'error': str(e)}, status=500)
+
 @csrf_exempt
 def edit_habit(request):
     if request.method != "POST":
@@ -116,9 +131,16 @@ def edit_habit(request):
         user_id = int(data["user_id"])
         name = data["name"]
         activity_value_type = data["activity_value_type"]
+        target_days = data.get("target_days")  # 🔹 Nowe pole (opcjonalne)
+
+        if target_days is not None:
+            try:
+                target_days = int(target_days)
+            except ValueError:
+                return JsonResponse({"error": "target_days must be an integer or null"}, status=400)
 
         habit_service.get_habit(habit_id)
-        habit_service.edit_habit(habit_id, name, user_id, activity_value_type)
+        habit_service.edit_habit(habit_id, name, user_id, activity_value_type, target_days)
 
         return JsonResponse({"status": "success", "message": "Habit edited successfully"}, status=200)
 
@@ -129,6 +151,8 @@ def edit_habit(request):
         import traceback
         traceback.print_exc()
         return JsonResponse({"error": str(e)}, status=500)
+
+
 @csrf_exempt
 def mark_as_done(request):
     if request.method != 'POST':
@@ -162,11 +186,18 @@ def mark_as_done(request):
             if timestamp_str else date.today()
         )
 
+        existing = habit_service.get_activity_range(habit_id, timestamp, timestamp)
+        if existing:
+            return JsonResponse({'error': 'Activity already recorded for this date'}, status=400)
+
         activity = habit_service.register_activity(habit_id, timestamp, value)
+
+        completed = habit_service.is_habit_completed(habit_id)
 
         return JsonResponse({
             'habit_id': activity.habit_id,
-            'date': str(activity.activity_date)
+            'date': str(activity.activity_date),
+            'completed': completed
         }, status=201)
 
     except NoSuchElementException:
@@ -212,6 +243,43 @@ def get_all_habits(request):
         traceback.print_exc()
         return JsonResponse({'error': str(e)}, status=500)
 
+@csrf_exempt
+def get_habit_stats(request):
+    if request.method != "GET":
+        return JsonResponse({"error": "Only GET method allowed"}, status=405)
+
+    try:
+        habit_id = int(request.GET.get("habit_id"))
+        from_date = request.GET.get("from_date")
+        to_date = request.GET.get("to_date")
+
+        from_date = datetime.strptime(from_date, "%Y-%m-%d").date() if from_date else None
+        to_date = datetime.strptime(to_date, "%Y-%m-%d").date() if to_date else None
+
+        all_activities = habit_service._activity_repository.get_all()
+        filtered = [
+            a for a in all_activities
+            if a.habit_id == habit_id and
+               (from_date is None or a.activity_date >= from_date) and
+               (to_date is None or a.activity_date <= to_date)
+        ]
+
+        weekly_freq = defaultdict(int)
+        for a in filtered:
+            iso_year, iso_week, _ = a.activity_date.isocalendar()
+            weekly_freq[f"{iso_year}-W{iso_week:02}"] += 1
+
+        return JsonResponse({
+            "habit_id": habit_id,
+            "activity_count": len(filtered),
+            "weekly_frequency": weekly_freq,
+            "activity_dates": [str(a.activity_date) for a in filtered]
+        })
+
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return JsonResponse({"error": str(e)}, status=500)
 
 # endpoint for testing server status
 def index(request):

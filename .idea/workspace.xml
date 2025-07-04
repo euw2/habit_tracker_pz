@@ -6,12 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e9890131-f081-4486-bd14-cc495a1f7064" name="Changes" comment="Added migration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PZHabitTracker/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/PZHabitTracker/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/habits/Core/Habit.py" beforeDir="false" afterPath="$PROJECT_DIR$/habits/Core/Habit.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/habits/Core/HabitService.py" beforeDir="false" afterPath="$PROJECT_DIR$/habits/Core/HabitService.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/habits/Core/Repositories.py" beforeDir="false" afterPath="$PROJECT_DIR$/habits/Core/Repositories.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/habits/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/habits/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/habits/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/habits/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/habits/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/habits/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

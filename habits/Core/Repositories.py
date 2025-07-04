@@ -126,7 +126,7 @@ class ModelBasedHabitRepository(BaseRepository):
 
     @staticmethod
     def _domain_object_from_model(model: Habit) -> CoreHabit.Habit:
-        return CoreHabit.Habit(model.pk, model.name, model.user.id, model.activity_value_type, None)
+        return CoreHabit.Habit(model.pk, model.name, model.user.id, model.activity_value_type, model.target_days, None)
 
     @staticmethod
     def _fetch_user(user_id: int):
@@ -151,7 +151,15 @@ class ModelBasedHabitRepository(BaseRepository):
 
         name = kwargs.get("name", "New Habit")
         value_type = kwargs.get("activity_value_type", "int")
-        result = Habit(name=name, user=user, activity_value_type=value_type)
+        target_days = kwargs.get("target_days")
+
+        result = Habit(
+            name=name,
+            user=user,
+            activity_value_type=value_type,
+            target_days=target_days
+        )
+
         result.full_clean()
         result.save()
         return self._domain_object_from_model(result)
@@ -181,6 +189,7 @@ class ModelBasedHabitRepository(BaseRepository):
             raise ValueError("Can't change activity value type")
 
         mod.user = self._fetch_user(object_.user_id)
+        mod.target_days = object_.target_days
         mod.full_clean()
         mod.save()
 
@@ -189,7 +198,12 @@ class ModelBasedActivityRepository(BaseRepository):
 
     @staticmethod
     def _domain_object_from_model(model: Activity) -> CoreActivity.HabitActivity:
-        return CoreActivity.HabitActivity(model.pk, model.habit.primary_key, model.date)
+        return CoreActivity.HabitActivity(
+            id=model.pk,
+            habit_id=model.habit.pk,
+            activity_date=model.date,
+            value=model.value
+        )
 
     @staticmethod
     def _fetch_habit(habit_id: int):
