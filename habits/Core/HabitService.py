@@ -22,7 +22,11 @@ class HabitService:
         self._habit_repository = habit_repository
 
     def create_habit(self, name: str, user_id: int, activity_value_type: str):
-        return self._habit_repository.create(name, user_id, activity_value_type)
+        return self._habit_repository.create(
+            name=name,
+            user_id=user_id,
+            activity_value_type=activity_value_type
+        )
 
     def get_habit(self, habit_id: int) -> Habit:
         return self._habit_repository.get_by_id(habit_id)

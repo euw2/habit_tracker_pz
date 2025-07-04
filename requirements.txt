@@ -1,3 +1,4 @@
 django
 django_wait_for_db
 psycopg2
+python-dotenv
