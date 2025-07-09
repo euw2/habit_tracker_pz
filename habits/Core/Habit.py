@@ -8,4 +8,5 @@ class Habit:
     name: str
     user_id: int
     activity_value_type: str  # 'int' or 'float' atm
+    target_days: Optional[int] = None
     rep_obj_id: Optional[int] = field(default=None, compare=False)

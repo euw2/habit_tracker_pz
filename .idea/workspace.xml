@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9890131-f081-4486-bd14-cc495a1f7064" name="Changes" comment="- Disabled static files app">
-      <change beforePath="$PROJECT_DIR$/PZHabitTracker/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/PZHabitTracker/settings.py" afterDir="false" />
+    <list default="true" id="e9890131-f081-4486-bd14-cc495a1f7064" name="Changes" comment="Added migration">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/habits/Core/Habit.py" beforeDir="false" afterPath="$PROJECT_DIR$/habits/Core/Habit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/habits/Core/HabitService.py" beforeDir="false" afterPath="$PROJECT_DIR$/habits/Core/HabitService.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/habits/Core/Repositories.py" beforeDir="false" afterPath="$PROJECT_DIR$/habits/Core/Repositories.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/habits/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/habits/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/habits/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/habits/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/habits/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/habits/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +103,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-c69650fc56ca-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.15619.17" />
+        <option value="bundled-python-sdk-babbdf50b680-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.15989.155" />
       </set>
     </attachedChunks>
   </component>
