@@ -1,1 +1,1 @@
-web: .env/dev_env_entry_point.sh
+app: .env/dev_env_entry_point.sh
