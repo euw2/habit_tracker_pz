@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9890131-f081-4486-bd14-cc495a1f7064" name="Changes" comment="- added procfile for heroku deployment">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e9890131-f081-4486-bd14-cc495a1f7064" name="Changes" comment="- Disabled static files app">
       <change beforePath="$PROJECT_DIR$/PZHabitTracker/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/PZHabitTracker/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -191,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752091197055</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="- Disabled static files app">
+      <option name="closed" value="true" />
+      <created>1752092267731</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1752092267731</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -242,6 +249,7 @@
     <MESSAGE value="Added migration" />
     <MESSAGE value="- added wait_for_db command to container start up" />
     <MESSAGE value="- added procfile for heroku deployment" />
-    <option name="LAST_COMMIT_MESSAGE" value="- added procfile for heroku deployment" />
+    <MESSAGE value="- Disabled static files app" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Disabled static files app" />
   </component>
 </project>
